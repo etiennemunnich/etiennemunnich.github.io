@@ -1,0 +1,2 @@
+webpackJsonp([0x9b544cfa2a85],{844:function(e,s){e.exports={data:{page:{id:"/Users/munniche/Documents/js-web-hack/1/shootmenow/content/pages/success/index.md absPath of file >>> MarkdownRemark",html:"<p>Thank you. I will answer to the message as soon as possible.</p>",frontmatter:{title:"Success"}},footnote:{id:"/Users/munniche/Documents/js-web-hack/1/shootmenow/content/parts/footnote.md absPath of file >>> MarkdownRemark",html:""},site:{siteMetadata:{facebook:{appId:""}}}},pathContext:{slug:"/success/"}}}});
+//# sourceMappingURL=path---success-04548e5bda47f14c5bd9.js.map

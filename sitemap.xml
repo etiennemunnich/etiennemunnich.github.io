@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://etiennemunnich.github.io//success/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//blog-up-again/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//broke-the-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//how-did-i-build-this-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//working-with-maxmind-geoip/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//dns-over-tls-and-https/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//basic-load-testing-with-h2load/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//in-recent-news/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//open-canary-honey-pot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//interesting-links-and-podcasts/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://etiennemunnich.github.io//search/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>

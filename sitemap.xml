@@ -1,17 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://etiennemunnich.github.io//success/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//blog-up-again/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//broke-the-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//how-did-i-build-this-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//working-with-maxmind-geoip/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//dns-over-tls-and-https/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//basic-load-testing-with-h2load/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//in-recent-news/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//interesting-links-and-podcasts/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//open-canary-honey-pot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://etiennemunnich.github.io//search/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://etiennemunnich.github.io/tags/ddos/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/reinvent/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/reinvent-2024-protecting-against-ddos-events/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/aws/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/bot-control/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/bot-networks/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/catch/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/reinforce/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/reinforce-2024-presentation-with-catch/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/reinforce/</loc>
+    <lastmod>2024-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/protecting-web-applications/</loc>
+    <lastmod>2023-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/reinvent-designing-a-secure-perimeter/</loc>
+    <lastmod>2023-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/shield-advanced/</loc>
+    <lastmod>2023-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/waf/</loc>
+    <lastmod>2023-12-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/about/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/cloud-architecture/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/edge-computing/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/introduction/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/welcome/</loc>
+    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/honeypot/</loc>
+    <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/opencanary/</loc>
+    <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/opencanary-honey-pot/</loc>
+    <lastmod>2019-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/modsecurity/</loc>
+    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/podcasts/</loc>
+    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/some-news-and-podcasts/</loc>
+    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/dns-over-http/</loc>
+    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/posts/dns-over-https/</loc>
+    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/dns-over-tls/</loc>
+    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/tags/securing-dns/</loc>
+    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://etiennemunnich.github.io/categories/</loc>
+  </url>
 </urlset>

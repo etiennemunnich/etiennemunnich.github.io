@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Musings from Etienne</title>
+    <link>https://etiennemunnich.github.io/posts/</link>
+    <description>Recent content in Posts on Musings from Etienne</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://etiennemunnich.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>re:invent 2024 - protecting against DDoS events</title>
+      <link>https://etiennemunnich.github.io/posts/reinvent-2024-protecting-against-ddos-events/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/reinvent-2024-protecting-against-ddos-events/</guid>
+      <description>&lt;h1 id=&#34;reinvent-2024---protecting-against-ddos-events&#34;&gt;re:invent 2024 - protecting against DDoS events&lt;/h1&gt;&#xA;&lt;p&gt;I had a wonderful time meeting customers and presenting at re:invent &amp;lsquo;24!&lt;/p&gt;&#xA;&lt;h2 id=&#34;aws-reinvent-2024---you-are-under-a-ddos-attack-are-you-ready-to-respond-cdn306&#34;&gt;AWS re:Invent 2024 - You are under a DDOS attack! Are you ready to respond? (CDN306)&lt;/h2&gt;&#xA;&lt;p&gt;Do your operational teams know how to respond in the event of an attack? Have you architected with a DDOS strategy in mind? This talk guides you through the steps that help you react when under attack. Explore AWS tools you should leverage and best practices you can follow to proactively prepare for such scenarios. Learn how to identify and respond to DDOS attacks using services such as Amazon CloudFront, AWS WAF, and AWS Shield Advanced.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>re:inforce 2024 presentation with catch</title>
+      <link>https://etiennemunnich.github.io/posts/reinforce-2024-presentation-with-catch/</link>
+      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/reinforce-2024-presentation-with-catch/</guid>
+      <description>&lt;h1 id=&#34;reinforce-2024-presentation-with-catch&#34;&gt;re:inforce 2024 presentation with catch&lt;/h1&gt;&#xA;&lt;p&gt;I had the amazing priviledge to co-present at re:inforce!&lt;/p&gt;&#xA;&lt;h2 id=&#34;aws-reinforce-2024---how-catch-group-uses-aws-waf-bot-control-on-their-ecommerce-platform-nis306&#34;&gt;AWS re:Inforce 2024 - How Catch Group uses AWS WAF Bot Control on their ecommerce platform (NIS306)&lt;/h2&gt;&#xA;&lt;p&gt;In the fast-paced world of ecommerce, security is crucial. This session explores Catch Group’s journey, the lessons they learned, and how AWS security services empowered them to improve safeguards for their ecommerce platform and customer experience. By leveraging AWS WAF Bot Control for targeted bots, AWS WAF Fraud Control for account takeover prevention, and AWS Shield Advanced, Catch Group was able to gain better visibility into potential threats. This allowed them to identify and implement targeted mitigations to protect against bots, DDoS attacks, and account takeover fraud. As a result, Catch Group was able to provide their customers with a secure and reliable shopping experience.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>re:invent 2023 - Designing a secure perimeter with cost in mind</title>
+      <link>https://etiennemunnich.github.io/posts/reinvent-designing-a-secure-perimeter/</link>
+      <pubDate>Thu, 07 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/reinvent-designing-a-secure-perimeter/</guid>
+      <description>&lt;h1 id=&#34;protecting-web-application-workfloads-with-aws-shield-and-aws-waf&#34;&gt;Protecting Web Application workfloads with AWS Shield and AWS WAF&lt;/h1&gt;&#xA;&lt;p&gt;So grateful to have had the chance to co-present a chalk talk at re:invent!&lt;/p&gt;&#xA;&lt;h2 id=&#34;reinvent-2023---designing-a-secure-perimeter-with-cost-in-mind&#34;&gt;re:invent 2023 - Designing a secure perimeter with cost in mind&lt;/h2&gt;&#xA;&lt;p&gt;Co-presentated with Damindra Bandara.&lt;/p&gt;&#xA;&lt;p&gt;In this chalk talk, you will learn how to optimize your monthly AWS spend leveraging Amazon Security Services (Amazon CloudFront, AWS Shield, AWS WAF and AWS Global Accelerator) to design a secure perimeter. This session will outline in detail optimization techniques including: optimizing data egress costs using Savings Bundles, DDoS cost prevention, cost optimized configurations, WAF cost optimization, and visibility options such as usage trends and cost explorer. Attendees will get an opportunity to ask questions regarding their use cases and understand how to save their perimeter security cost.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>update to the blog</title>
+      <link>https://etiennemunnich.github.io/posts/welcome/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/welcome/</guid>
+      <description>&lt;p&gt;Welcome to my blog! As a Senior Edge Specialist Solutions Architect at AWS, I&amp;rsquo;ll be sharing insights and experiences from the forefront of cloud computing, with a particular focus on Edge services and distributed systems. My goal is to contribute practical knowledge to the technical community, especially in areas where performance, security, and global scale intersect.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-to-expect&#34;&gt;What to Expect&lt;/h2&gt;&#xA;&lt;p&gt;I plan to write about:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Edge Computing &amp;amp; Content Delivery&lt;/strong&gt;: Optimizing global content delivery through AWS Edge services including CloudFront, Lambda@Edge, and CloudFront Functions.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>opencanary honey pot - part of my zero day initiative</title>
+      <link>https://etiennemunnich.github.io/posts/opencanary-honey-pot/</link>
+      <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/opencanary-honey-pot/</guid>
+      <description>&lt;h1 id=&#34;opencanary-honey-pot---part-of-my-zero-day-initiative&#34;&gt;opencanary honey pot - part of my zero day initiative&lt;/h1&gt;&#xA;&lt;p&gt;It’s been a while :] But back to the grind stone, my nextr 1 day project was based out of curiousity about what was happening on my DSL router as as an attack surface after reading about common attacks to type home &lt;a href=&#34;https://securityledger.com/2019/08/huge-survey-of-firmware-finds-no-security-gains-in-15-years/&#34;&gt;routers&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Fair warning - don’t open your router up to the net without understanding the risks - you’re letting the world into your home. I used a spare router&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>some news and podcasts</title>
+      <link>https://etiennemunnich.github.io/posts/some-news-and-podcasts/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/some-news-and-podcasts/</guid>
+      <description>&lt;h1 id=&#34;sharing-is-caring&#34;&gt;sharing is caring&lt;/h1&gt;&#xA;&lt;p&gt;Whilst I haven’t posted I’ve been studying towards certifications, here are some worthy news items&lt;/p&gt;&#xA;&lt;h2 id=&#34;links--podcasts-im-listening-to-at-the-moment&#34;&gt;links &amp;amp; podcasts I’m listening to at the moment&lt;/h2&gt;&#xA;&lt;p&gt;HAProxy agent for ModSecurity web application firewall - jcmoraisjr/modsecurity-spoa - &lt;a href=&#34;https://github.com/jcmoraisjr/modsecurity-spoa&#34;&gt;https://github.com/jcmoraisjr/modsecurity-spoa&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Like any other field, the world of Software Development has some interesting and famous rules, principles and laws - &lt;a href=&#34;https://www.timsommer.be/famous-laws-of-software-development/&#34;&gt;https://www.timsommer.be/famous-laws-of-software-development/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Podcasts: DarkNet Diaries, Data Engineering Podcast, JS Party&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>dns over https</title>
+      <link>https://etiennemunnich.github.io/posts/dns-over-https/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/dns-over-https/</guid>
+      <description>&lt;p&gt;This had been an interesting dive into the next generation of securing DNS interactions. I’ll deal with DOT (DNS over TLS) in a seperate post to focus on DOH (DNS over HTTPS) in this post.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dns-over-https&#34;&gt;DNS over HTTPS:&lt;/h2&gt;&#xA;&lt;p&gt;Why would has the IETF decided to use this approach? From the RFC. Well frankly DNSSEC failed to get wide spread adoption, and since DNS was designed in the days where security the use and protocol was not really a consideration there has to be a new approach to help prevent bad actors poisoning and interfering with DNS operation. DOH albeit controvercially has been given the green light by the IETF. So per the RFC, why DOH:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

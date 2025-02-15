@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modsecurity on Musings from Etienne</title>
+    <link>https://etiennemunnich.github.io/tags/modsecurity/</link>
+    <description>Recent content in Modsecurity on Musings from Etienne</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://etiennemunnich.github.io/tags/modsecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>some news and podcasts</title>
+      <link>https://etiennemunnich.github.io/posts/some-news-and-podcasts/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://etiennemunnich.github.io/posts/some-news-and-podcasts/</guid>
+      <description>&lt;h1 id=&#34;sharing-is-caring&#34;&gt;sharing is caring&lt;/h1&gt;&#xA;&lt;p&gt;Whilst I haven’t posted I’ve been studying towards certifications, here are some worthy news items&lt;/p&gt;&#xA;&lt;h2 id=&#34;links--podcasts-im-listening-to-at-the-moment&#34;&gt;links &amp;amp; podcasts I’m listening to at the moment&lt;/h2&gt;&#xA;&lt;p&gt;HAProxy agent for ModSecurity web application firewall - jcmoraisjr/modsecurity-spoa - &lt;a href=&#34;https://github.com/jcmoraisjr/modsecurity-spoa&#34;&gt;https://github.com/jcmoraisjr/modsecurity-spoa&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Like any other field, the world of Software Development has some interesting and famous rules, principles and laws - &lt;a href=&#34;https://www.timsommer.be/famous-laws-of-software-development/&#34;&gt;https://www.timsommer.be/famous-laws-of-software-development/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Podcasts: DarkNet Diaries, Data Engineering Podcast, JS Party&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

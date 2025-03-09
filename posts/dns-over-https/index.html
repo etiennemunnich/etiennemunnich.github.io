@@ -1,0 +1,114 @@
+<!doctype html><html lang=en-us><head><title>dns over https // Musings from Etienne</title>
+<link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.143.1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Etienne Munnich"><meta name=description content><link rel=stylesheet href=/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css><meta name=twitter:card content="summary"><meta name=twitter:title content="dns over https"><meta name=twitter:description content="This had been an interesting dive into the next generation of securing DNS interactions. I’ll deal with DOT (DNS over TLS) in a seperate post to focus on DOH (DNS over HTTPS) in this post.
+DNS over HTTPS: Why would has the IETF decided to use this approach? From the RFC. Well frankly DNSSEC failed to get wide spread adoption, and since DNS was designed in the days where security the use and protocol was not really a consideration there has to be a new approach to help prevent bad actors poisoning and interfering with DNS operation. DOH albeit controvercially has been given the green light by the IETF. So per the RFC, why DOH:"><meta property="og:url" content="https://etiennemunnich.github.io/posts/dns-over-https/"><meta property="og:site_name" content="Musings from Etienne"><meta property="og:title" content="dns over https"><meta property="og:description" content="This had been an interesting dive into the next generation of securing DNS interactions. I’ll deal with DOT (DNS over TLS) in a seperate post to focus on DOH (DNS over HTTPS) in this post.
+DNS over HTTPS: Why would has the IETF decided to use this approach? From the RFC. Well frankly DNSSEC failed to get wide spread adoption, and since DNS was designed in the days where security the use and protocol was not really a consideration there has to be a new approach to help prevent bad actors poisoning and interfering with DNS operation. DOH albeit controvercially has been given the green light by the IETF. So per the RFC, why DOH:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-04-22T00:00:00+00:00"><meta property="article:modified_time" content="2019-04-22T00:00:00+00:00"><meta property="article:tag" content="Dns Over Tls"><meta property="article:tag" content="Dns Over Http"><meta property="article:tag" content="Securing Dns"></head><body><header class=app-header><a href=/><img class=app-header-avatar src=/avatar.jpg alt="Etienne Munnich"></a>
+<span class=app-header-title>Musings from Etienne</span><nav class=app-header-menu><a class=app-header-menu-item href=/posts/>Posts</a>
+-
+<a class=app-header-menu-item href=/about/>About</a></nav><p>My blog covering mostly technical subjects around web application security, serverless architectures, distributed systems and other cloud computing topics.</p><div class=app-header-social><a href=https://github.com/EtienneMunnich target=_blank rel="noreferrer noopener me"><svg class="icon icon-github" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+</a><a href=https://www.linkedin.com/in/etiennemunnich/ target=_blank rel="noreferrer noopener me"><svg class="icon icon-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>linkedin</title><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+</a><a href=https://topmate.io/etienne_munnich target=_blank rel="noreferrer noopener me"><svg class="icon icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>globe</title><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</a><a href=https://discord.com/channels/907076068098334800/907076068098334803 target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>dns over https</h1><div class=post-meta><div><svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+Apr 22, 2019</div><div><svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+5 min read</div><div><svg class="icon icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+<a class=tag href=/tags/dns-over-tls/>Dns Over Tls</a>
+<a class=tag href=/tags/dns-over-http/>Dns Over Http</a>
+<a class=tag href=/tags/securing-dns/>Securing Dns</a></div></div></header><div class=post-content><p>This had been an interesting dive into the next generation of securing DNS interactions. I’ll deal with DOT (DNS over TLS) in a seperate post to focus on DOH (DNS over HTTPS) in this post.</p><h2 id=dns-over-https>DNS over HTTPS:</h2><p>Why would has the IETF decided to use this approach? From the RFC. Well frankly DNSSEC failed to get wide spread adoption, and since DNS was designed in the days where security the use and protocol was not really a consideration there has to be a new approach to help prevent bad actors poisoning and interfering with DNS operation. DOH albeit controvercially has been given the green light by the IETF. So per the RFC, why DOH:</p><p>These use cases are preventing on-path devices from interfering with DNS operations(1), and also allowing web applications to access DNS information via existing browser APIs (2) in a safe way
+consistent with Cross Origin Resource Sharing (CORS)</p><p>Okay, so the plan is (1) to prevent DNS operations from being messed with by upstream DNS services, as the resolvers communications will be encrypted between the client and the DNS server/resolver (HTTPS). This has some interesting implications:</p><p>The client can choose to ignore an invalid certificate presented by DOH DNS resolver, but in general terms this is an issue with any HTTPS/TLS situation for any web service.</p><p>Pretty much means anyone can stand up a server with a valid cert and start serving DOH, as long as the CA from the cert is on the Mozilla list.</p><p>Controlling client DNS queries from within a corporate network to outside resolvers is often something network/firewall admins do to help protectect there networks. This may prove be more difficult with DOH, as browsers/applications could be setup to drectly make DNS queries to resolvers outside the network and bypass proxies/UTM DNS checking. In saying this UTM’s could potentially prevent queries using certain content or header evaluations to detect that are particular to DOH and prevent them, not as simple as blocking UDP/TCP on port 53.</p><p>One will need a DNS proxy to allow for applications that do not natively support DOH for the time being. More modern application in the future may have the application logic and libraries integrated to support DOH much like Chrome and Firefox have.</p><h2 id=cors>CORS</h2><p>CORS (2) support by resolvers ensures requests can be made across domains thereby allowing for browsers/applications supporting CORS responses to use DOH without further client security hoops to jump through.
+So, how does this work in actuallity?</p><p>There are only a handful resolvers supporting DOH at the moment, I’ve run some tests against Cloudflare and Google using curl (I used an older version that doesn’t support DOH natively).</p><p>Using the HTTPS endpoints provided by google using curl (GET) demostrates the request and responses structure [a]. There are some interesting items that come out of a simple test here:</p><p>DNS query is also available via QUIC / HTTP3. Which means TLS1.3 goodness over UDP or TCP</p><p>cache-control header response value matched the TTL of the DNS record, however if run many times showed wildly variying times, appears to be some caching issue or something along these line - a little more digging (see what I did there) into this is going to be needed.</p><p>I used jq (third-party) to help prettify the JSON output
+(Cloudflare)[https://developers.cloudflare.com/1.1.1.1/dns-over-https/json-format/] has an implmentation that allows for both JSON and DNS wire format. I noticed whilst curling the cache-control mirrored the DNS record TTL and wasn’t all over the place as with the Google tests (ie TTL counted down as you’d expect for bog (udp, port 53) standard DNS queries) [b].</p><blockquote><p>Suffice to say the change to use DOH will require some further consideration before implmeneting. But I believe overall that this is a step in the right direction (to secure DNS communications) that can be easily adopted however I guess time will tell. Been fun playing with this! I found that when testing CloudFlares 1.1.1.1 Andriod App that DNS latency performance for DOH was notibly faster than DOT, but more on that later.</p></blockquote><p>As a side note about no zero days; whilst I may not post every day I am working on such posts over a number of days. I may change this approach, but this is working for now :)</p><p>[a] Google Query:</p><pre tabindex=0><code>curl -v https://dns.google.com/resolve?name=www.news24.com -H &#34;Origin: www.someorigin.com&#34; | jq
+....
+&gt; GET /resolve?name=www.news24.com HTTP/1.1
+&gt; Host: dns.google.com
+...
+&gt; Origin: www.someorigin.com
+&gt; 
+&lt; HTTP/1.1 200 OK
+&lt; Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+&lt; Access-Control-Allow-Origin: *
+&lt; Date: Sun, 28 Apr 2019 07:02:06 GMT
+&lt; Expires: Sun, 28 Apr 2019 07:02:06 GMT
+&lt; Cache-Control: private, max-age=121
+&lt; Content-Type: application/x-javascript; charset=UTF-8
+&lt; Server: HTTP server (unknown)
+&lt; X-XSS-Protection: 0
+&lt; X-Frame-Options: SAMEORIGIN
+&lt; Alt-Svc: quic=&#34;:443&#34;; ma=2592000; v=&#34;46,44,43,39&#34;
+&lt; Accept-Ranges: none
+&lt; Vary: Accept-Encoding
+&lt; Transfer-Encoding: chunked
+...
+{
+  &#34;Status&#34;: 0,
+  &#34;TC&#34;: false,
+  &#34;RD&#34;: true,
+  &#34;RA&#34;: true,
+  &#34;AD&#34;: false,
+  &#34;CD&#34;: false,
+  &#34;Question&#34;: [
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1
+    }
+  ],
+  &#34;Answer&#34;: [
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1,
+      &#34;TTL&#34;: 121,
+      &#34;data&#34;: &#34;104.16.252.81&#34;
+    },
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1,
+      &#34;TTL&#34;: 121,
+      &#34;data&#34;: &#34;104.16.251.81&#34;
+    }
+  ]
+}
+</code></pre><p>[b] CloudFlare Query:</p><pre tabindex=0><code>curl -H &#39;accept: application/dns-json&#39; &#39;https://cloudflare-dns.com/dns-query?name=www.news24.com&amp;type=A&#39; -v | jq
+....
+&gt; GET /dns-query?name=www.news24.com&amp;type=A HTTP/1.1
+&gt; Host: cloudflare-dns.com
+&gt; User-Agent: curl/7.54.0
+&gt; accept: application/dns-json
+&gt; 
+&lt; HTTP/1.1 200 OK
+&lt; Date: Sun, 28 Apr 2019 08:51:00 GMT
+&lt; Content-Type: application/dns-json
+&lt; Content-Length: 286
+&lt; Connection: keep-alive
+&lt; Access-Control-Allow-Origin: *
+&lt; cache-control: max-age=38
+&lt; Expect-CT: max-age=604800, report-uri=&#34;https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct&#34;
+&lt; Server: cloudflare
+&lt; CF-RAY: 4ce7caba29b26551-SYD
+....
+{
+  &#34;Status&#34;: 0,
+  &#34;TC&#34;: false,
+  &#34;RD&#34;: true,
+  &#34;RA&#34;: true,
+  &#34;AD&#34;: false,
+  &#34;CD&#34;: false,
+  &#34;Question&#34;: [
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1
+    }
+  ],
+  &#34;Answer&#34;: [
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1,
+      &#34;TTL&#34;: 38,
+      &#34;data&#34;: &#34;104.16.251.81&#34;
+    },
+    {
+      &#34;name&#34;: &#34;www.news24.com.&#34;,
+      &#34;type&#34;: 1,
+      &#34;TTL&#34;: 38,
+      &#34;data&#34;: &#34;104.16.252.81&#34;
+    }
+  ]
+}
+</code></pre></div><div class=post-footer></div></article></main></body></html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Migration on Musings from Etienne</title>
+    <link>http://localhost:1313/tags/migration/</link>
+    <description>Recent content in Migration on Musings from Etienne</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/migration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sample Migrated Post</title>
+      <link>http://localhost:1313/migrated-post-template-copy-6/</link>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/migrated-post-template-copy-6/</guid>
+      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sample Migrated Post</title>
+      <link>http://localhost:1313/migrated-post-template-copy-7/</link>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/migrated-post-template-copy-7/</guid>
+      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sample Migrated Post</title>
+      <link>http://localhost:1313/migrated-post-template-copy-8/</link>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/migrated-post-template-copy-8/</guid>
+      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>interesting links and github repos</title>
+      <link>http://localhost:1313/posts/interesting-links-and-github-repos/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/interesting-links-and-github-repos/</guid>
+      <description>&lt;h2 id=&#34;interesting-links--github-repos&#34;&gt;Interesting Links &amp;amp; Github Repos&lt;/h2&gt;&#xA;&lt;p&gt;I’ve created a &lt;a href=&#34;https://discord.com/channels/907076068098334800/907076068098334803&#34;&gt;discord channel&lt;/a&gt; to be a more realtime way to reach out and chat about projects and some of the cool stuff you may be working through.&lt;/p&gt;&#xA;&lt;p&gt;A cool collection of &lt;a href=&#34;https://github.com/stelligent/cloudformation_templates&#34;&gt;CloudFormation Templates&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Decode JWT tokens (useful for debugging SSO signon issues): &lt;a href=&#34;https://jwt.io/&#34;&gt;https://jwt.io/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;BBR - Congestion Control Research - TCP delay-controlled TCP flow control algorithm from Google - &lt;a href=&#34;https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/&#34;&gt;https://blog.apnic.net/2017/05/09/bbr-new-kid-tcp-block/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Sysctl Performance Research - &lt;a href=&#34;https://wiki.mikejung.biz/Sysctl_tweaks&#34;&gt;https://wiki.mikejung.biz/Sysctl_tweaks&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>working with maxmind geoip</title>
+      <link>http://localhost:1313/posts/working-with-maxmind-geoip/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/working-with-maxmind-geoip/</guid>
+      <description>&lt;p&gt;scripting querys against the maxmind db&amp;rsquo;s with python&lt;/p&gt;&#xA;&lt;p&gt;There comes a time when one needs to check for an IP’s likely physical location, in my case I’ve been playing with DNS of HTTPS and DNS over TLS and part of the workflow I had whilst testing was to check the responses GEO location against the free Maxmind database, but more on that another time.&lt;/p&gt;&#xA;&lt;p&gt;So I downloaded the GeoLite2 (Free) City + ASN Databases from maxmind, install the prereq’s via pip and built a simple python script to test.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

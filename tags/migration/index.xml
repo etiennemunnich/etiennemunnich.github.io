@@ -6,29 +6,8 @@
     <description>Recent content in Migration on Musings from Etienne</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/migration/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Sample Migrated Post</title>
-      <link>http://localhost:1313/migrated-post-template-copy-6/</link>
-      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/migrated-post-template-copy-6/</guid>
-      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Sample Migrated Post</title>
-      <link>http://localhost:1313/migrated-post-template-copy-7/</link>
-      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/migrated-post-template-copy-7/</guid>
-      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Sample Migrated Post</title>
-      <link>http://localhost:1313/migrated-post-template-copy-8/</link>
-      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/migrated-post-template-copy-8/</guid>
-      <description>&lt;p&gt;[This is a template for migrating posts from your old blog. When migrating posts:]&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a new markdown file for each post in the &lt;code&gt;content/posts/&lt;/code&gt; directory&lt;/li&gt;&#xA;&lt;li&gt;Copy the content from your old blog&lt;/li&gt;&#xA;&lt;li&gt;Add proper front matter (the YAML section at the top)&lt;/li&gt;&#xA;&lt;li&gt;Update any image references to point to the correct location in &lt;code&gt;/static/images/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Test the formatting locally using &lt;code&gt;hugo server&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Example post structure:&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;[Your introduction here]&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;&#xA;&lt;p&gt;[Your main content here]&lt;/p&gt;</description>
-    </item>
     <item>
       <title>interesting links and github repos</title>
       <link>http://localhost:1313/posts/interesting-links-and-github-repos/</link>

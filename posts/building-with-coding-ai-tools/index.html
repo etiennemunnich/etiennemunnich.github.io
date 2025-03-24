@@ -1,0 +1,143 @@
+<!doctype html><html lang=en-us><head><title>Building with Coding AI Tools // Musings from Etienne</title>
+<link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.145.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Etienne Munnich"><meta name=description content><link rel=stylesheet href=/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Building with Coding AI Tools"><meta name=twitter:description content="Integrating Perplexity AI in a Python App: Because Why Not Let Robots Write Your Blog?
+A technical deep-dive into integrating Perplexity AI’s language models, or, “How I taught my computer to argue with itself.”
+So, you want to make your Python app talk to Perplexity AI? Great! Because nothing says “cutting-edge” like outsourcing your brainpower to a server farm. In this article, I’ll dive into an example built with Amazon Q Developer, Perplexity and a few other tools. Maybe, just maybe, figure out if this is a good idea."><meta property="og:url" content="https://etiennemunnich.github.io/posts/building-with-coding-ai-tools/"><meta property="og:site_name" content="Musings from Etienne"><meta property="og:title" content="Building with Coding AI Tools"><meta property="og:description" content="Integrating Perplexity AI in a Python App: Because Why Not Let Robots Write Your Blog?
+A technical deep-dive into integrating Perplexity AI’s language models, or, “How I taught my computer to argue with itself.”
+So, you want to make your Python app talk to Perplexity AI? Great! Because nothing says “cutting-edge” like outsourcing your brainpower to a server farm. In this article, I’ll dive into an example built with Amazon Q Developer, Perplexity and a few other tools. Maybe, just maybe, figure out if this is a good idea."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-03-23T00:00:00+00:00"><meta property="article:modified_time" content="2025-03-23T00:00:00+00:00"><meta property="article:tag" content="Coding With Ai"><meta property="article:tag" content="Streamlit"><meta property="article:tag" content="Amazon Q Developer"><meta property="article:tag" content="Perplexity Ai"><meta property="article:tag" content="Modsec"><meta property="article:tag" content="Crs"></head><body><header class=app-header><a href=/><img class=app-header-avatar src=/avatar.jpg alt="Etienne Munnich"></a>
+<span class=app-header-title>Musings from Etienne</span><nav class=app-header-menu><a class=app-header-menu-item href=/posts/>Posts</a>
+-
+<a class=app-header-menu-item href=/about/>About</a></nav><p>My blog covering mostly technical subjects around web application security, serverless architectures, distributed systems and other cloud computing topics.</p><div class=app-header-social><a href=https://github.com/EtienneMunnich target=_blank rel="noreferrer noopener me"><svg class="icon icon-github" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg>
+</a><a href=https://www.linkedin.com/in/etiennemunnich/ target=_blank rel="noreferrer noopener me"><svg class="icon icon-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>linkedin</title><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+</a><a href=https://topmate.io/etienne_munnich target=_blank rel="noreferrer noopener me"><svg class="icon icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>globe</title><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3.0 014 10 15.3 15.3.0 01-4 10A15.3 15.3.0 018 12a15.3 15.3.0 014-10z"/></svg>
+</a><a href=https://discord.com/channels/907076068098334800/907076068098334803 target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Building with Coding AI Tools</h1><div class=post-meta><div><svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+Mar 23, 2025</div><div><svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+5 min read</div><div><svg class="icon icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+<a class=tag href=/tags/coding-with-ai/>Coding With Ai</a>
+<a class=tag href=/tags/streamlit/>Streamlit</a>
+<a class=tag href=/tags/amazon-q-developer/>Amazon Q Developer</a>
+<a class=tag href=/tags/perplexity-ai/>Perplexity Ai</a>
+<a class=tag href=/tags/modsec/>Modsec</a>
+<a class=tag href=/tags/crs/>Crs</a>
+<a class=tag href=/tags/owasp/>Owasp</a>
+<a class=tag href=/tags/agentic/>Agentic</a>
+<a class=tag href=/tags/trendy/>Trendy</a></div></div></header><div class=post-content><h1 id=integrating-perplexity-ai-in-a-python-app>Integrating Perplexity AI in a Python App:</h1><p><em>Because Why Not Let Robots Write Your Blog?</em></p><blockquote><p>A technical deep-dive into integrating Perplexity AI&rsquo;s language models, or, &ldquo;How I taught my computer to argue with itself.&rdquo;</p></blockquote><p>So, you want to make your Python app talk to Perplexity AI? Great! Because nothing says &ldquo;cutting-edge&rdquo; like outsourcing your brainpower to a server farm. In this article, I&rsquo;ll dive into an example built with Amazon Q Developer, Perplexity and a few other tools. Maybe, just maybe, figure out if this is a good idea.</p><p>My effort; it&rsquo;s a brautiful mess but works: <a href=https://github.com/etiennemunnich/modsec-crs-rule-explainer>Modsecurity Rule Explainer</a>.</p><h2 id=project-overview>Project Overview</h2><p>I started by trying to create a &ldquo;flexible&rdquo; language model interface. Translation: making it so you can swap out AI providers like you swap out socks or trying a new flavour of ice cream. There&rsquo;s always a new flavour, or something like that. Except, instead of smelly feet, you get&mldr; well, potentially tastey AI responses.</p><h2 id=key-components>Key Components</h2><h3 id=penmenship-lands-better-outcomes>Penmenship lands better outcomes</h3><p>Start with a plan, think of it as building psudeo code and request workflows ahead of time. This helps you understand the requirements. But the trick not only building great prompts, but knowing that these tools get it wrong (a lot).</p><p>Prompts MUST declare specific goals, steps, formats, constraints, etc. It&rsquo;s a double edged sword to ask for best practises and error handling or test driven approaches as this often lands the models jumping down the prverbial rabbit hole and not delivering on the actual outcome you want.</p><h3 id=base-llm-interface>Base LLM Interface</h3><p>In the code example I built, I started using fancy &ldquo;abstract base classes&rdquo; to make sure all the AI buddies behave. Think of it as putting them in a digital kindergarten:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>abc</span> <span class=kn>import</span> <span class=n>ABC</span><span class=p>,</span> <span class=n>abstractmethod</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Dict</span><span class=p>,</span> <span class=n>Any</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>LLMProvider</span><span class=p>(</span><span class=n>ABC</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Base class for all LLM providers. Basically, the boss telling them what to do.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>api_key</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>api_key</span> <span class=o>=</span> <span class=n>api_key</span> <span class=c1># The magic password to make them work.</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=nd>@abstractmethod</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>analyze</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>prompt</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>Any</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;Analyze text using the LLM provider. Or, &#34;Think, robot, THINK!&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>pass</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=perplexity-integration>Perplexity Integration</h3><p>Hooking up to Perplexity AI with all the grace of a toddler trying to plug in a USB:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Python data-lang=Python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Dict</span><span class=p>,</span> <span class=n>Any</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>.base</span> <span class=kn>import</span> <span class=n>LLMProvider</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>httpx</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>PerplexityProvider</span><span class=p>(</span><span class=n>LLMProvider</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Implementation of LLMProvider for Perplexity AI. Or, &#34;The robot that actually answers.&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>api_key</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=n>api_key</span><span class=p>)</span> <span class=c1># Super means &#34;Do what your robot parents told you.&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>client</span> <span class=o>=</span> <span class=n>httpx</span><span class=o>.</span><span class=n>Client</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=n>base_url</span><span class=o>=</span><span class=s2>&#34;[https://api.perplexity.ai](https://api.perplexity.ai)&#34;</span><span class=p>,</span> <span class=c1># Where the robot lives.</span>
+</span></span><span class=line><span class=cl>            <span class=n>headers</span><span class=o>=</span><span class=p>{</span><span class=s2>&#34;Authorization&#34;</span><span class=p>:</span> <span class=sa>f</span><span class=s2>&#34;Bearer </span><span class=si>{</span><span class=n>api_key</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>}</span> <span class=c1># The robot&#39;s password.</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>analyze</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>prompt</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>Any</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;Analyze text using Perplexity AI&#39;s API. Or, &#34;Robot, tell me something interesting.&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>response</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>client</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=s2>&#34;/chat/completions&#34;</span><span class=p>,</span> <span class=n>json</span><span class=o>=</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;model&#34;</span><span class=p>:</span> <span class=s2>&#34;pplx-7b-chat&#34;</span><span class=p>,</span> <span class=c1># The robot&#39;s brain.</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;messages&#34;</span><span class=p>:</span> <span class=p>[{</span><span class=s2>&#34;role&#34;</span><span class=p>:</span> <span class=s2>&#34;user&#34;</span><span class=p>,</span> <span class=s2>&#34;content&#34;</span><span class=p>:</span> <span class=n>prompt</span><span class=p>}]</span> <span class=c1># What we&#39;re asking the robot.</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>response</span><span class=o>.</span><span class=n>json</span><span class=p>()</span> <span class=c1># The robot&#39;s answer.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=factory-pattern-implementation>Factory Pattern Implementation</h3><p>Figuring out a &ldquo;factory pattern&rdquo;, to create robot instances. Because who wants to manually assemble robots?</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Python data-lang=Python><span class=line><span class=cl><span class=k>class</span> <span class=nc>LLMFactory</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Factory class for creating LLM providers. Or, the robot assembly line.&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>_providers</span><span class=p>:</span> <span class=n>Dict</span><span class=p>[</span><span class=nb>str</span><span class=p>,</span> <span class=n>Type</span><span class=p>[</span><span class=n>LLMProvider</span><span class=p>]]</span> <span class=o>=</span> <span class=p>{}</span> <span class=c1># Where we keep the robot parts.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@classmethod</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>create</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>provider_name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>api_key</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>LLMProvider</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;Create an instance of the specified LLM provider. Or, &#34;Build me a robot!&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>provider_name</span> <span class=ow>not</span> <span class=ow>in</span> <span class=bp>cls</span><span class=o>.</span><span class=n>_providers</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Unknown provider: </span><span class=si>{</span><span class=n>provider_name</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span> <span class=c1># &#34;Sorry, we don&#39;t have that model in stock.&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=bp>cls</span><span class=o>.</span><span class=n>_providers</span><span class=p>[</span><span class=n>provider_name</span><span class=p>](</span><span class=n>api_key</span><span class=p>)</span> <span class=c1># Here&#39;s your robot!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nd>@classmethod</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>register_provider</span><span class=p>(</span><span class=bp>cls</span><span class=p>,</span> <span class=n>name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>provider_class</span><span class=p>:</span> <span class=n>Type</span><span class=p>[</span><span class=n>LLMProvider</span><span class=p>]):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;Register a new provider class. Or, &#34;Add a new robot to the assembly line.&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=bp>cls</span><span class=o>.</span><span class=n>_providers</span><span class=p>[</span><span class=n>name</span><span class=p>]</span> <span class=o>=</span> <span class=n>provider_class</span> <span class=c1># Put the robot parts in the machine.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=technical-implementation>Technical Implementation</h3><p>Security considerations, built in patterns out the box. Whilst these code companions are constantly evolving, nearly all the tools I tested had a measure of common sense approaches to building secure code. For example, using environment variables, because hardcoding API keys is like leaving your front door unlocked with a sign that says &ldquo;Please rob me.&rdquo;</p><h4 id=usage-examples>Usage Examples</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Python data-lang=Python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_llm_client</span><span class=p>(</span><span class=n>api_key</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>provider</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=s2>&#34;perplexity&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;Initialize and return an LLM client instance. Or, &#34;Get me a robot to talk to.&#34; &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>LLMFactory</span><span class=o>.</span><span class=n>create</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>provider_name</span><span class=o>=</span><span class=n>provider</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>api_key</span><span class=o>=</span><span class=n>api_key</span> <span class=c1># The robot&#39;s secret password.</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Create an instance and analyze text. Or, &#34;Ask the robot something profound.&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>llm</span> <span class=o>=</span> <span class=n>get_llm_client</span><span class=p>(</span><span class=n>api_key</span><span class=o>=</span><span class=s2>&#34;your-api-key&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>response</span> <span class=o>=</span> <span class=n>llm</span><span class=o>.</span><span class=n>analyze</span><span class=p>(</span><span class=s2>&#34;Explain the meaning of life, and also, what&#39;s for dinner?&#34;</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl>   <span class=c1># Multitasking robots.</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=testing-and-quality-assurance>Testing and Quality Assurance</h3><p>I really like testing everything TDD, because I wouldn&rsquo;t trust a robot that hasn&rsquo;t been thoroughly interrogated, would you? In one example, I built the desired example output JSON events and ask the code to build accordingly, code quality was pretty spot on.</p><h2 id=conclusion>Conclusion</h2><p>We&rsquo;ve successfully built a system to talk to Perplexity AI. Now, if it leads to a robot uprising or just better blog posts, only time will tell.</p><blockquote><p>Note: For detailed setup instructions and API documentation, please refer to the project&rsquo;s README.md file. Or, ask a robot. They probably know.</p></blockquote></div><div class=post-footer></div></article></main></body></html>

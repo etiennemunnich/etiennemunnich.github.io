@@ -1,0 +1,649 @@
+/* ============================================================
+   Musings from Etienne — Dark Editorial 2026
+   Palette : #0a0a0a · #10b981 emerald · Montserrat Variable
+   Mode    : prefers-color-scheme (dark default, light invert)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   0. Tokens
+   ---------------------------------------------------------- */
+:root {
+  /* Dark (default) */
+  --bg:           #0a0a0a;
+  --surface:      #111111;
+  --surface-2:    #161616;
+  --border:       #1e1e1e;
+  --border-soft:  #141414;
+  --text:         #efefef;
+  --muted:        #6b7280;
+  --subtle:       #374151;
+  --accent:       #10b981;
+  --accent-dim:   rgba(16, 185, 129, 0.10);
+  --accent-hover: #34d399;
+  --code-bg:      #0d1117;
+  --code-border:  #21262d;
+  --code-text:    #c9d1d9;
+
+  --font:         "Montserrat Variable", system-ui, -apple-system, sans-serif;
+  --mono:         "Cascadia Code", "Fira Code", "JetBrains Mono", Consolas, monospace;
+
+  --max-w:        780px;
+  --prose-w:      680px;
+  --px:           clamp(1rem, 5vw, 2.5rem);
+  --r:            4px;
+  --r-md:         8px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:           #f8f9fa;
+    --surface:      #ffffff;
+    --surface-2:    #f1f3f5;
+    --border:       #e9ecef;
+    --border-soft:  #f1f3f5;
+    --text:         #0d0d0d;
+    --muted:        #6b7280;
+    --subtle:       #9ca3af;
+    --accent:       #059669;
+    --accent-dim:   rgba(5, 150, 105, 0.07);
+    --accent-hover: #10b981;
+    --code-bg:      #f6f8fa;
+    --code-border:  #d0d7de;
+    --code-text:    #24292f;
+  }
+}
+
+/* ----------------------------------------------------------
+   1. Reset & base
+   ---------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 20%, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ----------------------------------------------------------
+   2. Typography
+   ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 800; }
+h2 { font-size: clamp(1.25rem, 3vw, 1.625rem); font-weight: 700; }
+h3 { font-size: 1.125rem; font-weight: 700; }
+h4 { font-size: 1rem;     font-weight: 600; }
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--accent-hover); }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3rem 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: var(--accent-dim);
+  border-radius: 0 var(--r) var(--r) 0;
+  color: var(--muted);
+  font-style: italic;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+th {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------
+   3. Code
+   ---------------------------------------------------------- */
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--code-bg);
+  color: var(--accent);
+  padding: 0.15em 0.4em;
+  border-radius: var(--r);
+  border: 1px solid var(--code-border);
+}
+
+pre {
+  background: var(--code-bg) !important;
+  border: 1px solid var(--code-border);
+  border-radius: var(--r-md);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Emerald top-line accent on code blocks */
+pre::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  color: var(--code-text) !important;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* Override prism.css for dark mode */
+@media (prefers-color-scheme: dark) {
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata      { color: #6b7280; }
+  .token.punctuation { color: #9ca3af; }
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant   { color: #f59e0b; }
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char       { color: var(--accent); }
+  .token.operator,
+  .token.entity,
+  .token.url        { color: #60a5fa; }
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword    { color: #a78bfa; }
+  .token.function   { color: #f472b6; }
+}
+
+.gatsby-highlight { margin-bottom: 2rem; }
+.gatsby-highlight pre { margin-bottom: 0; }
+
+/* ----------------------------------------------------------
+   4. Layout
+   ---------------------------------------------------------- */
+.global-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px) 5rem;
+}
+
+/* ----------------------------------------------------------
+   5. Header & nav
+   ---------------------------------------------------------- */
+.global-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.site-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.site-title:hover { color: var(--text); }
+.site-title:hover .title-dot { color: var(--accent-hover); }
+
+.title-dot { color: var(--accent); }
+
+/* Non-root inner page link */
+.header-link-home {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.header-link-home:hover { color: var(--accent); }
+
+.main-heading { margin: 0; font-size: 1.0625rem; }
+.main-heading a {
+  color: var(--text);
+  text-decoration: none;
+}
+.main-heading a:hover { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-link:hover { color: var(--text); }
+
+
+/* ----------------------------------------------------------
+   7. Bio intro (homepage)
+   ---------------------------------------------------------- */
+.bio-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.bio-avatar {
+  border-radius: 50% !important;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+
+.bio-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bio-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.bio-tagline {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.bio-description {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0 0 0.375rem;
+  max-width: 520px;
+}
+
+.bio-disclaimer {
+  font-size: 0.75rem;
+  color: var(--subtle);
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.bio-social {
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .bio-intro { flex-direction: column; gap: 1rem; padding: 1.75rem 0 1.5rem; }
+  .bio-description { max-width: 100%; }
+}
+
+/* ----------------------------------------------------------
+   8. Post list (index)
+   ---------------------------------------------------------- */
+.posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list-item {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.post-list-item:last-child { border-bottom: none; }
+
+.post-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.post-title-row h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  max-width: 72%;
+}
+
+.post-title-row h2 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.post-title-row h2 a:hover { color: var(--accent); }
+
+.post-title-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border) 0%, transparent 100%);
+  min-width: 1rem;
+  flex-shrink: 0;
+}
+
+.post-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.post-meta .sep {
+  margin: 0 0.35em;
+  opacity: 0.45;
+}
+
+/* ----------------------------------------------------------
+   9. Blog post (article page)
+   ---------------------------------------------------------- */
+.blog-post {
+  max-width: var(--prose-w);
+  padding-top: 2.5rem;
+}
+
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.15s;
+}
+.post-back:hover { color: var(--accent); }
+
+.blog-post header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-post header h1 {
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+}
+
+.blog-post-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* Prose body */
+.blog-post section h2,
+.blog-post section h3,
+.blog-post section h4 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(16, 185, 129, 0.35);
+}
+.blog-post section a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
+}
+
+.blog-post footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ----------------------------------------------------------
+   10. Post nav (prev/next)
+   ---------------------------------------------------------- */
+.blog-post-nav {
+  max-width: var(--prose-w);
+  margin-top: 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.blog-post-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.blog-post-nav a {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.blog-post-nav a:hover { color: var(--accent); }
+
+/* ----------------------------------------------------------
+   11. Footer & social links
+   ---------------------------------------------------------- */
+.site-footer {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+  font-size: 0.75rem;
+  color: var(--subtle);
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  letter-spacing: 0.02em;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.social-link svg { flex-shrink: 0; }
+.social-link:hover { color: var(--accent); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--subtle);
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------
+   11b. YouTube / responsive iframe
+   ---------------------------------------------------------- */
+/* gatsby-remark-responsive-iframe adds .gatsby-resp-iframe-wrapper */
+.gatsby-resp-iframe-wrapper {
+  margin-bottom: 2rem !important;
+}
+
+/* Fallback for raw iframes not caught by the plugin */
+.blog-post section iframe[src*="youtube"] {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: var(--r-md);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/* ----------------------------------------------------------
+   12. About page
+   ---------------------------------------------------------- */
+.about-page {
+  max-width: var(--prose-w);
+  padding-top: 3rem;
+}
+
+.about-page h1 {
+  margin-bottom: 2rem;
+}
+
+.about-page h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about-page ul {
+  margin-bottom: 1.5rem;
+}
+
+.about-disclaimer {
+  font-size: 0.8125rem;
+  color: var(--subtle);
+  font-style: italic;
+  border-left: 2px solid var(--border);
+  padding-left: 0.875rem;
+  margin-bottom: 2rem !important;
+}
+
+.about-page a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(16, 185, 129, 0.35);
+}
+.about-page a:hover { color: var(--accent-hover); }
+
+/* ----------------------------------------------------------
+   13. Mobile
+   ---------------------------------------------------------- */
+@media (max-width: 640px) {
+  .global-header  { flex-wrap: wrap; gap: 1rem; padding: 1.25rem 0; }
+  .site-nav       { gap: 1.5rem; }
+  .post-title-row h2 { font-size: 0.9375rem; max-width: 65%; }
+  .blog-post header h1 { font-size: 1.5rem; }
+  pre             { padding: 1rem; }
+  blockquote      { margin-left: 0; }
+  ul, ol          { list-style-position: inside; }
+}
